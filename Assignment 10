@@ -1,59 +1,59 @@
-1. Write a program to print the elements from List using normal for loop.
-import java.util.*;
+1. Explain about Selenium Architecture
 
-public class ListExample {
+1. Selenium Architecture Overview
+Selenium architecture follows a client-server model and mainly includes the following components:
+
+
+2. Components of Selenium Architecture:
+
+a. Selenium Client Library
+- These are language-specific bindings (Java, Python, C#, etc.) that help write test scripts.
+- Example: You use Java bindings to write code in Eclipse/IntelliJ.
+
+b. JSON Wire Protocol (now W3C Protocol)
+- It is the protocol used to transfer data between client libraries and browser drivers.
+- It converts your code into HTTP requests that the browser understands.
+
+c. Browser Drivers
+- Each browser (Chrome, Firefox, Edge) has its own driver (e.g., ChromeDriver).
+- The driver receives HTTP commands from Selenium and interacts with the browser.
+
+d. Browsers
+- Chrome, Firefox, Edge, etc.
+- The browser performs the actual operations like clicking, typing, etc.
+
+
+
+3. Flow of Selenium Automation:
+
+1. You write code in your language (Java/Python).
+2. Selenium client library sends requests via JSON protocol.
+3. Browser driver receives the request and sends it to the browser.
+4. Browser performs action and sends response back via driver.
+
+2. Write a program to open website (https://www.saucedemo.com/) and close the browser after priniting a message like "Site navigation success"
+
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class OpenWebsite {
     public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        names.add("Surya");
-        names.add("Meghna");
-        names.add("Ramya");
-        names.add("Karthik");
+       
+        WebDriverManager.chromedriver().setup();
 
-        for (int i = 0; i < names.size(); i++) {
-            System.out.println(names.get(i));
-        }
-    }
-}
-
-2. Write a program to store the elements in Set and print by sorting order.
-import java.util.*;
-
-public class SortedSetExample {
-    public static void main(String[] args) {
-        Set<String> names = new HashSet<>();
-        names.add("Surya");
-        names.add("Meghna");
-        names.add("Ramya");
-        names.add("Karthik");
+       
+        WebDriver driver = new ChromeDriver();
 
         
-        List<String> sortedList = new ArrayList<>(names);
-        Collections.sort(sortedList);
+        driver.get("https://www.saucedemo.com/");
 
-        System.out.println("Names in sorted order:");
-        for (String name : sortedList) {
-            System.out.println(name);
-        }
-    }
-}
+       
+        System.out.println("Site navigation success");
 
-3. Write a program to store the elements in Map <String,String> and print the elements.
-
-java
-import java.util.*;
-
-public class MapExample {
-    public static void main(String[] args) {
-        Map<String, String> student = new HashMap<>();
-
-        student.put("Name", "Surya");
-        student.put("Course", "Java");
-        student.put("City", "Chennai");
-
-        System.out.println("Student Details:");
-        for (Map.Entry<String, String> entry : student.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
+      
+        driver.quit();
     }
 }
 
