@@ -31,29 +31,30 @@ d. Browsers
 3. Browser driver receives the request and sends it to the browser.
 4. Browser performs action and sends response back via driver.
 
+
+
 2. Write a program to open website (https://www.saucedemo.com/) and close the browser after priniting a message like "Site navigation success"
 
+package seleniumpractice;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class OpenWebsite {
-    public static void main(String[] args) {
-       
-        WebDriverManager.chromedriver().setup();
+public class Seldayone {
 
-       
-        WebDriver driver = new ChromeDriver();
+	public static void main(String[] args ) {
+		// TODO Auto-generated method stub
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.saucedemo.com");
+		
+		System.out.println("Site Navigation Success");
+	
+driver.close();
 
-        
-        driver.get("https://www.saucedemo.com/");
+	}
 
-       
-        System.out.println("Site navigation success");
-
-      
-        driver.quit();
-    }
 }
+
+Output:
+Site Navigation Success
 
